@@ -16,18 +16,29 @@ public class JpaMain {
         tx.begin();
 
         try {
+            // 비영속
+            Member member = new Member();
+            member.setId( 100L );
+            member.setName( "HelloJPAA" );
+
+            // 영속
+            System.out.println( "Before====================" );
+            em.persist( member );
+            System.out.println( "After=====================" );
+
+
             // Member member = new Member();
             // member.setId( 2L );
             // member.setName( "HelloB" );
 
-            List<Member> result = em.createQuery( "select m from Member as m ", Member.class )
-                    .setFirstResult( 1 )
-                    .setMaxResults( 10 )
-                    .getResultList();
-
-            for ( Member member : result ) {
-                System.out.println( "meber.getName() = " + member.getName() );
-            }
+            // List<Member> result = em.createQuery( "select m from Member as m ", Member.class )
+            //         .setFirstResult( 1 )
+            //         .setMaxResults( 10 )
+            //         .getResultList();
+            //
+            // for ( Member member : result ) {
+            //     System.out.println( "meber.getName() = " + member.getName() );
+            // }
             // Member member = em.find( Member.class, 1L );
             // member.setName( "HelloJPA" );
             // persist 를 할 필요가 없음
@@ -36,6 +47,8 @@ public class JpaMain {
             // System.out.println( "memberName = " + member.getName() );
 
             // em.persist( member );
+
+            // transcation 커밋 상태일 때, 영속 상태의 객체들이 DB에 접근함
             tx.commit();
         } catch ( Exception e ) {
             tx.rollback();
