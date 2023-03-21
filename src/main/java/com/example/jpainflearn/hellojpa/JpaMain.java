@@ -16,16 +16,40 @@ public class JpaMain {
         tx.begin();
 
         try {
-            // 비영속
-            Member member = new Member();
-            member.setId( 100L );
-            member.setName( "HelloJPAA" );
 
-            // 영속
-            System.out.println( "Before====================" );
-            em.persist( member );
-            System.out.println( "After=====================" );
+            Member member = em.find( Member.class, 150L );
+            member.setName( "ABCDEF" ); // persist()가 필요없다 => 엔티티와 스냅샷을 비교해서 변경감지 시, update 쿼리를 생성해서 DB에 던진다.
 
+            // Member a = new Member( 150L, "A" );
+            // Member b = new Member( 160L, "B" );
+            //
+            // em.persist( a );
+            // em.persist( b );
+            //
+            // System.out.println("---------------------------------------");
+
+            // // 해당의 경우 DB SELECT문은 한번만 한다 => 1차 캐싱하고 나서
+            // Member member1 = em.find( Member.class, 101L );
+            // Member member2 = em.find( Member.class, 101L );
+            // System.out.println( "Result = " + (member1 == member2) ); // 해당 객체는 동일하다고 판단 (영속성을 보장)
+
+
+            // // 비영속
+            // Member member = new Member();
+            // member.setId( 101L );
+            // member.setName( "HelloJPA" );
+            //
+            // // 영속
+            // System.out.println( "Before====================" );
+            // em.persist( member );
+            // System.out.println( "After=====================" );
+            //
+            //
+            // em.find( Member.class, 101L );
+            //
+            // // 조회 시점이 DB SELECT 구문에서 가져오는게 아니라 1차 캐시에서 가져옴
+            // System.out.println( "member.getId() = " + member.getId() );
+            // System.out.println( "member.getName() = " + member.getName() );
 
             // Member member = new Member();
             // member.setId( 2L );
