@@ -17,8 +17,17 @@ public class JpaMain {
 
         try {
 
+            // Member member = new Member( 200L, "member200" );
+            // em.persist( member );
+            //
+            // em.flush(); // 강제 호출
+
             Member member = em.find( Member.class, 150L );
-            member.setName( "ABCDEF" ); // persist()가 필요없다 => 엔티티와 스냅샷을 비교해서 변경감지 시, update 쿼리를 생성해서 DB에 던진다.
+            member.setUsername( "AAAA" ); // persist()가 필요없다 => 엔티티와 스냅샷을 비교해서 변경감지 시, update 쿼리를 생성해서 DB에 던진다.
+
+            // em.detach( member ); // JPA 에서 관리하지 않음 update 쿼리가 나가지 않음 (부분적)
+            // em.clear(); // 준영속성 상태 (전체 비우기)
+            // em.close(); // 컨텍스트를 종료 (이전 까지 내역 전부 X)
 
             // Member a = new Member( 150L, "A" );
             // Member b = new Member( 160L, "B" );
@@ -26,7 +35,7 @@ public class JpaMain {
             // em.persist( a );
             // em.persist( b );
             //
-            // System.out.println("---------------------------------------");
+            System.out.println( "------------------기준점---------------------" );
 
             // // 해당의 경우 DB SELECT문은 한번만 한다 => 1차 캐싱하고 나서
             // Member member1 = em.find( Member.class, 101L );
