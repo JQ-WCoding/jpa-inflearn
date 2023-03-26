@@ -4,21 +4,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-public class Member {
+public class Team {
 
     @Id
     @GeneratedValue
-    @Column ( name = "MEMBER_ID" )
+    @Column ( name = "TEAM_ID" )
     private Long id;
 
-    @Column ( name = "USERNAME" )
     private String name;
 
-    @ManyToOne
-    @JoinColumn ( name = "TEAM_ID" )
-    private Team team;
+    @OneToMany ( mappedBy = "team" )
+    private List<Member> members = new ArrayList<>(); // new Array 관례
 }
