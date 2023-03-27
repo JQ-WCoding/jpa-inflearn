@@ -1,7 +1,10 @@
 package com.example.jpainflearn.jpa_shop;
 
 import com.example.jpainflearn.jpa_shop.domain.Member;
+import com.example.jpainflearn.jpa_shop.domain.Order;
+import com.example.jpainflearn.jpa_shop.domain.OrderItem;
 import com.example.jpainflearn.jpa_shop.domain.Team;
+import com.sun.tools.corba.se.idl.constExpr.Or;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,21 +22,37 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Team team = new Team();
-            team.setName( "TeamA" );
-            em.persist( team );
+            Order order = new Order();
 
-
-            Member member = new Member();
-            member.setName( "member1" );
-            member.setTeam( team );
+            // Team team = new Team();
+            // team.setName( "TeamA" );
+            // em.persist( team );
+            //
+            //
+            // Member member = new Member();
+            // member.setName( "member1" );
+            // member.changeTeam( team ); // member 에 team을 세팅하는 시점에 team에도 member를 세팅
             // member.setTeam( team );
             // team.getMembers()
             //         .add( member ); // 적용불가
-            em.persist( member );
 
-            em.flush();
-            em.clear();
+            // em.persist( member );
+
+            // team.addMember( member );
+
+            // team.getMembers().add( member );
+
+            // em.flush();
+            // em.clear();
+            //
+            // Team findTeam = em.find( Team.class, team.getId() );
+            // List<Member> members = findTeam.getMembers();
+            //
+            // System.out.println("==============================================");
+            // for ( Member m : members ) {
+            //     System.out.println( "m.getName() = " + m.getName() );
+            // }
+            // System.out.println("==============================================");
 
             // Member findMember = em.find( Member.class, member.getId() );
             // List<Member> members = findMember.getTeam()

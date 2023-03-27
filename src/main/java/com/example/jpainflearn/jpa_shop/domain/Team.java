@@ -21,4 +21,14 @@ public class Team {
 
     @OneToMany ( mappedBy = "team" )
     private List<Member> members = new ArrayList<>(); // new Array 관례
+
+    public void addMember(Member member) {
+        member.setTeam( this );
+        members.add( member );
+    }
+
+    // @Override
+    // public String toString() {
+    //     return "Team{" + "id=" + id + ", name='" + name + '\'' + ", members=" + members + '}';
+    // }
 }
