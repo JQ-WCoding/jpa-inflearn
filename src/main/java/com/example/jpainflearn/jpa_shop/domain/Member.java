@@ -22,12 +22,6 @@ public class Member {
     @JoinColumn ( name = "TEAM_ID" )
     private Team team;
 
-    public void changeTeam(Team team) {
-        this.team = team;
-
-        team.getMembers().add( this );
-    }
-
     // @Override // 양방향 매핑 시, 무한루프 조심
     // public String toString() {
     //     return "Member{" + "id=" + id + ", name='" + name + '\'' + ", team=" + team + '}';

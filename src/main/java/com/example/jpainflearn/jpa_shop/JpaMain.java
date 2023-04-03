@@ -1,16 +1,11 @@
 package com.example.jpainflearn.jpa_shop;
 
-import com.example.jpainflearn.jpa_shop.domain.Member;
 import com.example.jpainflearn.jpa_shop.domain.Order;
-import com.example.jpainflearn.jpa_shop.domain.OrderItem;
-import com.example.jpainflearn.jpa_shop.domain.Team;
-import com.sun.tools.corba.se.idl.constExpr.Or;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
