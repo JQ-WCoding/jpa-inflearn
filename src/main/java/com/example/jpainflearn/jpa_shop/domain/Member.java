@@ -1,5 +1,6 @@
 package com.example.jpainflearn.jpa_shop.domain;
 
+import com.example.jpainflearn.hellojpa.Locker;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +22,10 @@ public class Member {
     @ManyToOne
     @JoinColumn ( name = "TEAM_ID" )
     private Team team;
+
+    @OneToOne
+    @JoinColumn ( name = "LOCKER_ID" )
+    private Locker locker;
 
     // @Override // 양방향 매핑 시, 무한루프 조심
     // public String toString() {
