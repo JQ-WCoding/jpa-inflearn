@@ -19,7 +19,4 @@ public class Delivery {
     private String zipcode;
 
     private DeliveryStatus deliveryStatus;
-
-    @OneToOne ( mappedBy = "delivey" )
-    private Order order;
 }

@@ -15,24 +15,35 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Movie movie = new Movie();
+            movie.setDirector( "AAA" );
+            movie.setActor( "BBB" );
+            movie.setName( "바람과 함께 사라지다" );
+
+            em.persist( movie );
+            em.flush();
+            em.clear();
+
+            Movie findMovie = em.find( Movie.class, movie.getId() );
+            System.out.println( "findMovie = " + findMovie );
 
             /* Identity의 경우는 persist() 시점에 insert를 진행 (원래는 commit일 때, insert 함) => JPA 가 insert 시점에 id 값을 가지고 와서 이미 조회한 상태임 */
-            TestMember testMember1 = new TestMember();
-            testMember1.setUsername( "HelloJPA1" );
-
-            TestMember testMember2 = new TestMember();
-            testMember2.setUsername( "HelloJPA2" );
-
-            TestMember testMember3 = new TestMember();
-            testMember3.setUsername( "HelloJPA3" );
-
-            TestMember testMember4 = new TestMember();
-            testMember4.setUsername( "HelloJPA4" );
-
-            em.persist( testMember1 );
-            em.persist( testMember2 );
-            em.persist( testMember3 );
-            em.persist( testMember4 );
+            // TestMember testMember1 = new TestMember();
+            // testMember1.setUsername( "HelloJPA1" );
+            //
+            // TestMember testMember2 = new TestMember();
+            // testMember2.setUsername( "HelloJPA2" );
+            //
+            // TestMember testMember3 = new TestMember();
+            // testMember3.setUsername( "HelloJPA3" );
+            //
+            // TestMember testMember4 = new TestMember();
+            // testMember4.setUsername( "HelloJPA4" );
+            //
+            // em.persist( testMember1 );
+            // em.persist( testMember2 );
+            // em.persist( testMember3 );
+            // em.persist( testMember4 );
 
 
             // Member member = new Member( 200L, "member200" );

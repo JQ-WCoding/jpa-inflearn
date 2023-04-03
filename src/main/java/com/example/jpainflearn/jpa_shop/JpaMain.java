@@ -17,7 +17,6 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Order order = new Order();
 
             // Team team = new Team();
             // team.setName( "TeamA" );

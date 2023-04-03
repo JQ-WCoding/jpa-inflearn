@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Item {
+public class Items {
 
     @Id
     @GeneratedValue
