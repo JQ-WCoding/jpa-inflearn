@@ -1,5 +1,6 @@
 package com.example.jpainflearn.jpa_shop;
 
+import com.example.jpainflearn.jpa_shop.domain.Book;
 import com.example.jpainflearn.jpa_shop.domain.Order;
 
 import javax.persistence.EntityManager;
@@ -17,6 +18,11 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Book book = new Book();
+            book.setName( "JPA" );
+            book.setAuthor( "LGJ" );
+
+            em.persist( book );
 
             // Team team = new Team();
             // team.setName( "TeamA" );

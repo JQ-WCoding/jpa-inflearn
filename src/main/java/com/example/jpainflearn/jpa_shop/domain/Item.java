@@ -1,10 +1,10 @@
-package com.example.jpainflearn.hellojpa;
+package com.example.jpainflearn.jpa_shop.domain;
 
 import javax.persistence.*;
 
 @Entity
-@Inheritance ( strategy = InheritanceType.JOINED )
-@DiscriminatorColumn
+@Inheritance ( strategy = InheritanceType.SINGLE_TABLE )
+@DiscriminatorColumn ( name = "DTYPE" )
 public abstract class Item {
 
     @Id

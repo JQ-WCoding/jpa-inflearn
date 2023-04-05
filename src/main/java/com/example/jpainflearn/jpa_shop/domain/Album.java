@@ -1,4 +1,4 @@
-package com.example.jpainflearn.hellojpa;
+package com.example.jpainflearn.jpa_shop.domain;
 
 import lombok.Getter;
 import lombok.Setter;

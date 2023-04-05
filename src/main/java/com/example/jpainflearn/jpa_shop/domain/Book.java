@@ -1,4 +1,4 @@
-package com.example.jpainflearn.hellojpa;
+package com.example.jpainflearn.jpa_shop.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,4 +15,6 @@ public class Book extends Item {
     private String author;
 
     private String isbn;
+
+    private String name;
 }
