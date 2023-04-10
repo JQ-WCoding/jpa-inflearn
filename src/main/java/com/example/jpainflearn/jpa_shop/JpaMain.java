@@ -47,8 +47,13 @@ public class JpaMain {
             Member findMember1 = em.find( Member.class, member1.getId() );
             Member findMember2 = em.getReference( Member.class, member2.getId() );
 
+            System.out.println( "findMember1.getTeam().getClass() = " + findMember1.getTeam().getClass() );
+
             // getReference 로 가져오면 type 비교 시, false
             System.out.println( "findMember1 == findMember2 = " + (findMember1.getClass() == findMember2.getClass()) );
+            findMember2.getName();
+            System.out.println( "isLoaded = " + emf.getPersistenceUnitUtil()
+                    .isLoaded( findMember2 ) ); // proxy 로딩 시점을 확인할 수 있다.
 
             /*
             Member member = new Member();

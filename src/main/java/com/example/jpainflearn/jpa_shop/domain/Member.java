@@ -19,7 +19,7 @@ public class Member {
     @Column ( name = "USERNAME" )
     private String name;
 
-    @ManyToOne
+    @ManyToOne ( fetch = FetchType.LAZY ) // 지연로딩, Eager 즉시로딩
     @JoinColumn ( name = "TEAM_ID" )
     private Team team;
 
